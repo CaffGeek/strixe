@@ -1,0 +1,54 @@
+﻿<ion-scroll direction="x">
+    <div class="row">
+        <div class="col col-20 frame" ng-repeat="frame in [1,2,3,4,5,6,7,8,9,10]">
+            <div class="row row-top">
+                <div class="col">{{frame}}</div>
+            </div>
+            <div class="row">
+                <div class="col shot">-</div>
+                <div class="col shot">-</div>
+                <div class="col shot">15</div>
+            </div>
+            <div class="row">
+                <div class="col score">{{frame * 15}}</div>
+            </div>
+        </div>
+    </div>
+</ion-scroll>
+
+<div class="row">
+    <div class="col col-20">
+        <label class="checkbox">
+            L2<input type="checkbox" />
+        </label>
+    </div>
+    <div class="col col-20">
+        <label class="checkbox">
+            L3<input type="checkbox" />
+        </label>
+    </div>
+    <div class="col col-20">
+        <label class="checkbox">
+            HP<input type="checkbox" />
+        </label>
+    </div>
+    <div class="col col-20">
+        <label class="checkbox">
+            R3<input type="checkbox" />
+        </label>
+    </div>
+    <div class="col col-20">
+        <label class="checkbox">
+            R2<input type="checkbox" />
+        </label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-offset-33 col-33">
+        <button class="button button-block button-energized"
+                ng-click="">
+            Ok
+        </button>
+    </div>
+</div>

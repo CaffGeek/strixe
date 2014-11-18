@@ -1,0 +1,16 @@
+/*Frame styles*/
+.col.frame {
+    margin: 0;
+    text-align: center;
+}
+.col.frame .col.shot {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+}
+.col.frame .col.score {
+    margin: 0;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+}
