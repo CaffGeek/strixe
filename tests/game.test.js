@@ -1,4 +1,4 @@
-describe("Five-Pin Bowling", function () {
+describe("Game tests", function () {
     'use strict';
 
     beforeEach(function () {

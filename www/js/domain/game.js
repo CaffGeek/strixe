@@ -5,6 +5,10 @@
         this._frames = [];
     };
 
+    game.prototype.getFrames = function() {
+        return this._frames;
+    };
+
     game.prototype.roll = function (pins) {
         var frame = this._frames[this._frames.length-1];
         if (frame == undefined || frame.isComplete()) {

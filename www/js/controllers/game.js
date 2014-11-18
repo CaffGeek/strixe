@@ -2,11 +2,10 @@
     "use strict";
 
     app.controller("GameController", ["$scope", function ($scope) {
-        $scope.game = { Frames: [] };
+        $scope.game = new Game();
 
         $scope.roll = function (roll) {
-            var frame = { Number: 1, Shots: [roll] };
-            $scope.game.Frames.push(frame);
+            $scope.game.roll(5);
         };
     }]);
 }());

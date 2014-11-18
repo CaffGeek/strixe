@@ -2,7 +2,7 @@
     "use strict";
 
     function frame(number) {
-        this._number = number;
+        this._number = number || 1;
         this._rolls = [];
     };
 
