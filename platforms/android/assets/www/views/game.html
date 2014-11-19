@@ -10,45 +10,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col score">{{frame.score()}}</div>
+                <div class="col score">{{game.score(frame._number)}}</div>
             </div>
         </div>
     </div>
 </ion-scroll>
 
 <div class="row">
-    <div class="col col-20">
+    <div class="col col-20" ng-repeat="pin in rack | orderBy:position">
         <label class="checkbox">
-            L2<input type="checkbox" />
-        </label>
-    </div>
-    <div class="col col-20">
-        <label class="checkbox">
-            L3<input type="checkbox" />
-        </label>
-    </div>
-    <div class="col col-20">
-        <label class="checkbox">
-            HP<input type="checkbox" />
-        </label>
-    </div>
-    <div class="col col-20">
-        <label class="checkbox">
-            R3<input type="checkbox" />
-        </label>
-    </div>
-    <div class="col col-20">
-        <label class="checkbox">
-            R2<input type="checkbox" />
+            {{pin.name}}
+            <input type="checkbox" ng-model="pin.isStanding" />
         </label>
     </div>
 </div>
 
 <div class="row">
-    <div class="col col-offset-33 col-33">
-        <button class="button button-block button-energized"
-                ng-click="roll(10)">
-            Ok
+    <div class="col col-offset-10 col-10">
+        <button class="button button-block" ng-click="rollClean();scroll()">
+            <span>{{
+                (!game.currentFrame() || game.currentFrame().isComplete() || game.currentFrame().score() % 15 === 0) ? 'X' 
+                : game.currentFrame()._rolls.length == 1 ? '/'
+                : '15'
+                }}</span>
         </button>
+    </div>
+    <div class="col col-offset-20 col-50">
+        <button class="button button-block button-energized" ng-click="roll();scroll()">Ok</button>
     </div>
 </div>

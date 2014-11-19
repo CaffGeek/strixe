@@ -40,6 +40,13 @@ describe("Game tests", function () {
         });
     });
 
+    describe("Game with 11 frames", function () {
+        it("should stop after 10 frames", function () {
+            rollMany.call(this, 33, 5);
+            expect(this.game.score()).toEqual(150);
+        });
+    });
+
     describe("Game with one spare", function () {
         it("should score 25 given a spare followed by 5 and then gutter balls", function () {
             rollSpare.call(this);

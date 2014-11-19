@@ -6,7 +6,9 @@
             </div>
             <div class="row">
                 <div class="col shot" ng-repeat="shot in frame._rolls track by $index">
-                    {{shot}}
+                    {{$index === 0 && frame._rolls.length === 1 && frame.score() === 15 ? 'X' 
+                    : $index === 1 && frame._rolls.length === 2 && frame.score() === 15 ? '/' 
+                    : shot}}
                 </div>
             </div>
             <div class="row">
@@ -27,15 +29,15 @@
 
 <div class="row">
     <div class="col col-offset-10 col-10">
-        <button class="button button-block" ng-click="rollClean()">
+        <button class="button button-block" ng-click="rollClean();scroll()">
             <span>{{
-                (!game.currentFrame() || game.currentFrame().isComplete()) ? 'X' 
+                (!game.currentFrame() || game.currentFrame().isComplete() || game.currentFrame().score() % 15 === 0) ? 'X' 
                 : game.currentFrame()._rolls.length == 1 ? '/'
                 : '15'
-            }}</span>
+                }}</span>
         </button>
     </div>
     <div class="col col-offset-20 col-50">
-        <button class="button button-block button-energized" ng-click="roll()">Ok</button>
+        <button class="button button-block button-energized" ng-click="roll();scroll()">Ok</button>
     </div>
 </div>

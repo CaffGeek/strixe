@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    app.controller("GameController", ["$scope", function ($scope) {
+    app.controller("GameController", ["$scope", "$ionicScrollDelegate", function ($scope, $ionicScrollDelegate) {
         $scope.rack = newRack();
         $scope.prevRackState = [];
         angular.copy($scope.rack, $scope.prevRackState);
@@ -17,7 +17,8 @@
             $scope.game.roll(rackDifference($scope.rack, $scope.prevRackState));
 
             //If we completed the frame, rerack the pins
-            if ($scope.game.currentFrame().isComplete())
+            if ($scope.game.currentFrame().isComplete()
+                || $scope.game.currentFrame().score() % 15 === 0)
                 $scope.rack = newRack();
             angular.copy($scope.rack, $scope.prevRackState);
         };
@@ -27,6 +28,10 @@
                 pin.isStanding = false;
             });
             $scope.roll();
+        };
+
+        $scope.scroll = function() {
+            $ionicScrollDelegate.scrollTo(999999);
         };
 
         function rackDifference(rack, prevRack) {
