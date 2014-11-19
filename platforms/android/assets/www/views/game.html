@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <div class="col shot" ng-repeat="shot in frame._rolls track by $index">
-                    {{shot}}
+                    {{game.shotToString(frame, $index)}}
                 </div>
             </div>
             <div class="row">
