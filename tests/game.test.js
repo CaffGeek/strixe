@@ -63,6 +63,11 @@ describe("Game tests", function () {
             rollMany.call(this, 12, 15);
             expect(this.game.score()).toEqual(450);
         });
+
+        it("should score 225 in frame 5", function () {
+            rollMany.call(this, 12, 15);
+            expect(this.game.score(5)).toEqual(225);
+        });
     });
 
     describe("Game with all scoring variations including tenth frame", function () {

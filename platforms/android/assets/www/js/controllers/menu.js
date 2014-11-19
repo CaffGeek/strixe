@@ -7,7 +7,7 @@
         };
 
         $scope.goTo = function (page) {
-            $ionicSideMenuDelegate.toggleLeft();
+            $ionicSideMenuDelegate.toggleLeft(false);
             $location.url('/' + page);
         };
     }]);

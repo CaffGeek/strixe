@@ -18,7 +18,10 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers/menu.js"></script>
+    <script src="js/controllers/game.js"></script>
     <script src="js/routing.js"></script>
+    <script src="js/domain/frame.js"></script>
+    <script src="js/domain/game.js"></script>
 </head>
 <body ng-app="StriXe" ng-controller="MenuController" class="platform-android platform-cordova platform-webview">
     <ion-side-menus>
@@ -54,6 +57,10 @@
                     <ion-item class="item item-icon-left" ng-click="goTo('')">
                         <i class="icon ion-home"></i>
                         Home
+                    </ion-item>
+                    <ion-item class="item item-icon-left" ng-click="goTo('statistics')">
+                        <i class="icon ion-stats-bars"></i>
+                        Statistics
                     </ion-item>
                     <ion-item class="item item-icon-left" ng-click="goTo('history')">
                         <i class="icon ion-calendar"></i>

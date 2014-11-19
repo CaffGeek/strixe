@@ -5,12 +5,8 @@
         this._frames = [];
     };
 
-    game.prototype.getFrames = function () {
+    game.prototype.getFrames = function() {
         return this._frames;
-    };
-
-    game.prototype.currentFrame = function () {
-        return this._frames[this._frames.length - 1];
     };
 
     game.prototype.roll = function (pins) {
@@ -23,11 +19,10 @@
         frame.roll(pins);
     };
 
-    game.prototype.score = function (asOfFrame) {
+    game.prototype.score = function () {
         var total = 0;
-        asOfFrame = asOfFrame || this._frames.length;
         
-        for (var i = 0; i < asOfFrame; i++) {
+        for (var i = 0; i < this._frames.length; i++) {
             var frame = this._frames[i];
             total += frame.totalScore(this._frames[i + 1], this._frames[i + 2]);
         }

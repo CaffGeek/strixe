@@ -45,8 +45,12 @@ C:\source\dungeon\strixe\platforms\android\assets\www\css\style.css \
 C:\source\dungeon\strixe\platforms\android\assets\www\img\ionic.png \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\app.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\controllers \
+C:\source\dungeon\strixe\platforms\android\assets\www\js\domain \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\routing.js \
+C:\source\dungeon\strixe\platforms\android\assets\www\js\controllers\game.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\controllers\menu.js \
+C:\source\dungeon\strixe\platforms\android\assets\www\js\domain\frame.js \
+C:\source\dungeon\strixe\platforms\android\assets\www\js\domain\game.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\lib\ionic \
 C:\source\dungeon\strixe\platforms\android\assets\www\lib\ionic\css \
 C:\source\dungeon\strixe\platforms\android\assets\www\lib\ionic\fonts \
@@ -125,4 +129,5 @@ C:\source\dungeon\strixe\platforms\android\assets\www\views\game.html \
 C:\source\dungeon\strixe\platforms\android\assets\www\views\history.html \
 C:\source\dungeon\strixe\platforms\android\assets\www\views\home.html \
 C:\source\dungeon\strixe\platforms\android\assets\www\views\settings.html \
+C:\source\dungeon\strixe\platforms\android\assets\www\views\statistics.html \
 C:\source\dungeon\strixe\platforms\android\ant-build\AndroidManifest.xml \

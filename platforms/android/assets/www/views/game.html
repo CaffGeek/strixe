@@ -1,16 +1,16 @@
 ﻿<ion-scroll direction="x">
     <div class="row">
-        <div class="col col-20 frame" ng-repeat="frame in [1,2,3,4,5,6,7,8,9,10]">
+        <div class="col col-20 frame" ng-repeat="frame in game.getFrames()">
             <div class="row row-top">
-                <div class="col">{{frame}}</div>
+                <div class="col">{{frame._number}}</div>
             </div>
             <div class="row">
-                <div class="col shot">-</div>
-                <div class="col shot">-</div>
-                <div class="col shot">15</div>
+                <div class="col shot" ng-repeat="shot in frame._rolls track by $index">
+                    {{shot}}
+                </div>
             </div>
             <div class="row">
-                <div class="col score">{{frame * 15}}</div>
+                <div class="col score">{{frame.score()}}</div>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
 <div class="row">
     <div class="col col-offset-33 col-33">
         <button class="button button-block button-energized"
-                ng-click="">
+                ng-click="roll(10)">
             Ok
         </button>
     </div>
