@@ -5,20 +5,10 @@ describe("Frame tests", function () {
         this.frame = new Frame();
     });
 
-    function rollStrike() {
-        this.frame.roll(15);
-    }
-
-    function rollSpare(firstPins) {
-        firstPins = firstPins || 5;
-        this.frame.roll(firstPins);
-        this.frame.roll(15 - firstPins);
-    }
-
     function rollFrame(one, two, three) {
-        this.frame.roll(one);
-        this.frame.roll(two);
-        this.frame.roll(three);
+        if (one) this.frame.roll(parseInt(one, 2));
+        if (two) this.frame.roll(parseInt(two, 2));
+        if (three) this.frame.roll(parseInt(three, 2));
     }
 
     describe("Gutter Frame", function () {
@@ -30,57 +20,57 @@ describe("Frame tests", function () {
 
     describe("Frame where all rolls are 5", function () {
         it("should score 15", function () {
-            rollFrame.call(this, 5, 5, 5);
+            rollFrame.call(this, "11000", "00100", "00011");
             expect(this.frame.score()).toEqual(15);
         });
     });
 
     describe("Frame with a spare", function () {
         it("should score 15", function () {
-            rollSpare.call(this, 5);
+            rollFrame.call(this, "11000", "00111");
             expect(this.frame.score()).toEqual(15);
         });
     });
 
     describe("Frame with a spare, followed by a 5", function () {
         it("should score 20", function () {
-            rollSpare.call(this, 5);
-            expect(this.frame.totalScore({ _rolls: [5, 10] }, { _rolls: [5, 10] })).toEqual(20);
+            rollFrame.call(this, "11000", "00111");
+            expect(this.frame.totalScore({ _rolls: [{ score: 5 }, { score: 10 }] }, { _rolls: [{ score: 5 }, { score: 10 }] })).toEqual(20);
         });
     });
 
     describe("Frame with a spare, followed by a strike", function () {
         it("should score 30", function () {
-            rollSpare.call(this, 5);
-            expect(this.frame.totalScore({ _rolls: [15] }, { _rolls: [5, 10] })).toEqual(30);
+            rollFrame.call(this, "11000", "00111");
+            expect(this.frame.totalScore({ _rolls: [{ score: 15 }] }, { _rolls: [{ score: 5 }, { score: 10 }] })).toEqual(30);
         });
     });
 
     describe("Frame with a strike", function () {
         it("should score 15", function () {
-            rollStrike.call(this);
+            rollFrame.call(this, "11111");
             expect(this.frame.score()).toEqual(15);
         });
     });
 
     describe("Frame with a strike, followed by a 5", function () {
         it("should score 20", function () {
-            rollStrike.call(this);
-            expect(this.frame.totalScore({ _rolls: [5, 0, 10] }, { _rolls: [5, 10] })).toEqual(20);
+            rollFrame.call(this, "11111");
+            expect(this.frame.totalScore({ _rolls: [{ score: 5 }, { score: 0 }, { score: 10 }] }, { _rolls: [{ score: 5 }, { score: 10 }] })).toEqual(20);
         });
     });
 
     describe("Frame with a strike, followed by a spare", function () {
         it("should score 30", function () {
-            rollStrike.call(this);
-            expect(this.frame.totalScore({ _rolls: [5, 10] }, { _rolls: [5, 10] })).toEqual(30);
+            rollFrame.call(this, "11111");
+            expect(this.frame.totalScore({ _rolls: [{ score: 5 }, { score: 10 }] }, { _rolls: [{ score: 5 }, { score: 10 }] })).toEqual(30);
         });
     });
 
     describe("Frame with a strike, followed by two strikes", function () {
         it("should score 45", function () {
-            rollStrike.call(this);
-            expect(this.frame.totalScore({ _rolls: [15] }, { _rolls: [15] })).toEqual(45);
+            rollFrame.call(this, "11111");
+            expect(this.frame.totalScore({ _rolls: [{ score: 15 }] }, { _rolls: [{ score: 15 }] })).toEqual(45);
         });
     });
 });
