@@ -4,15 +4,16 @@
     app.controller("GameController", ["$scope", "$ionicScrollDelegate", function ($scope, $ionicScrollDelegate) {
         $scope.pinsetter = new Pinsetter();
         $scope.game = new Game();
-        $scope.scorekeeper = new ScoreKeeper($scope.game);
+        $scope.scorekeeper = new ScoreKeeper($scope.game, $scope.pinsetter);
         
         $scope.roll = function () {
             var shotValue = this.pinsetter.getShotMask();
             $scope.game.roll(shotValue);
 
             //If we completed the frame, rerack the pins
+            console.log($scope.pinsetter.getRackMask());
             if ($scope.game.currentFrame().isComplete()
-                || $scope.game.currentFrame().score() % 15 === 0)
+                || $scope.pinsetter.getRackMask().toString(2) === "11111")
                 $scope.rack = this.pinsetter.reset();
 
             this.pinsetter.setPrevState();

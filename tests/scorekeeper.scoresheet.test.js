@@ -3,7 +3,8 @@
 
     beforeEach(function () {
         this.game = new Game();
-        this.scorekeeper = new ScoreKeeper(this.game);
+        this.pinsetter = new Pinsetter();
+        this.scorekeeper = new ScoreKeeper(this.game, this.pinsetter);
     });
 
     function rollFrame(one, two, three) {
@@ -84,11 +85,59 @@
 
     describe("Left miss two", function () {
         it("should score L-2:15", function () {
-            rollFrame.call(this, "01111", "00000", "00001");
+            rollFrame.call(this, "01111", "00000", "10000");
             expect(this.scorekeeper.scoresheet(1).ball1).toEqual('L');
             expect(this.scorekeeper.scoresheet(1).ball2).toEqual('-');
             expect(this.scorekeeper.scoresheet(1).ball3).toEqual('2');
             expect(this.scorekeeper.scoresheet(1).score).toEqual(15);
+        });
+    });
+
+    describe("frame with a spare, followed by a 5", function () {
+        it("should score 20", function () {
+            rollFrame.call(this, "11000", "00111");
+            rollFrame.call(this, "11000", "00111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(20);
+        });
+    });
+
+    describe("frame with a spare, followed by a strike", function () {
+        it("should score 30", function () {
+            rollFrame.call(this, "11000", "00111");
+            rollFrame.call(this, "11111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(30);
+        });
+    });
+
+    describe("frame with a strike", function () {
+        it("should score 15", function () {
+            rollFrame.call(this, "11111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(15);
+        });
+    });
+
+    describe("frame with a strike, followed by a 5", function () {
+        it("should score 20", function () {
+            rollFrame.call(this, "11111");
+            rollFrame.call(this, "11000", "00000", "00111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(20);
+        });
+    });
+
+    describe("frame with a strike, followed by a spare", function () {
+        it("should score 30", function () {
+            rollFrame.call(this, "11111");
+            rollFrame.call(this, "11000", "00111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(30);
+        });
+    });
+
+    describe("frame with a strike, followed by two strikes", function () {
+        it("should score 45", function () {
+            rollFrame.call(this, "11111");
+            rollFrame.call(this, "11111");
+            rollFrame.call(this, "11111");
+            expect(this.scorekeeper.scoresheet(1).score).toEqual(45);
         });
     });
 

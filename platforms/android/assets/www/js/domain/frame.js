@@ -2,51 +2,31 @@
     "use strict";
 
     function frame(number) {
-        this._number = number || 1;
+        this.number = number || 1;
         this._rolls = [];
     };
 
-    frame.prototype.roll = function (pins) {
-        this._rolls.push(pins);
+    frame.prototype.mask = function () {
+        var frameMask = 0;
+        if (this.getBall(1)) frameMask |= this.getBall(1).mask;
+        if (this.getBall(2)) frameMask |= this.getBall(2).mask;
+        if (this.getBall(3)) frameMask |= this.getBall(3).mask;
+        return frameMask;
+    }
+
+    frame.prototype.getBall = function (ball) {
+        return this._rolls[ball - 1];
     };
 
-    frame.prototype.score = function () {
-        var total = 0;
-        for (var i = 0; i < this._rolls.length; i++) {
-            total += this._rolls[i];
-        }
-
-        return total;
+    frame.prototype.roll = function (mask) {
+        this._rolls.push({
+            mask: mask
+        });
     };
 
-    frame.prototype.totalScore = function (nextFrame1, nextFrame2) {
-        var total = this.score();
-
-        var nextRolls = [];
-        if (this._number < 10 && nextFrame1) nextRolls = nextRolls.concat(nextFrame1._rolls);
-        if (this._number < 9 && nextFrame2) nextRolls = nextRolls.concat(nextFrame2._rolls);
-        nextRolls = nextRolls.concat([0, 0]);
-
-        if (this.isStrike()) {
-            total += nextRolls[0] + nextRolls[1];
-        } else if (this.isSpare()) {
-            total += nextRolls[0];
-        }
-
-        return total;
-    };
-
-    frame.prototype.isComplete = function () {
-        return (this._number < 10 && (this._rolls.length === 3 || this.score() === 15))
-            || (this._number === 10 && this._rolls.length === 3);
-    };
-
-    frame.prototype.isStrike = function () {
-        return this._number < 10 && this._rolls[0] === 15;
-    };
-
-    frame.prototype.isSpare = function () {
-        return this._number < 10 && (this._rolls[0] + this._rolls[1] === 15);
+    frame.prototype.isComplete = function() {
+        return (this.number < 10 && (this._rolls.length === 3 || this.mask() === parseInt('11111', 2)))
+            || (this.number === 10 && this._rolls.length === 3);
     };
 
     return frame;

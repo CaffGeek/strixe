@@ -3,7 +3,8 @@
 
     beforeEach(function () {
         this.game = new Game();
-        this.scorekeeper = new ScoreKeeper(this.game);
+        this.pinsetter = new Pinsetter();
+        this.scorekeeper = new ScoreKeeper(this.game, this.pinsetter);
     });
 
     function rollFrame(one, two, three) {

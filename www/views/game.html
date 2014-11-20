@@ -2,21 +2,21 @@
     <div class="row">
         <div class="col col-20 frame" ng-repeat="frame in game.getFrames()">
             <div class="row row-top">
-                <div class="col">{{frame._number}}</div>
+                <div class="col">{{frame.number}}</div>
             </div>
             <div class="row">
                 <div class="col shot">
-                    {{scorekeeper.scoresheet(frame._number).ball1}}
+                    {{scorekeeper.scoresheet(frame.number).ball1}}
                 </div>
                 <div class="col shot">
-                    {{scorekeeper.scoresheet(frame._number).ball2}}
+                    {{scorekeeper.scoresheet(frame.number).ball2}}
                 </div>
                 <div class="col shot">
-                    {{scorekeeper.scoresheet(frame._number).ball3}}
+                    {{scorekeeper.scoresheet(frame.number).ball3}}
                 </div>
             </div>
             <div class="row">
-                <div class="col score">{{scorekeeper.score(frame._number)}}</div>
+                <div class="col score">{{scorekeeper.scoresheet(frame.number).score}}</div>
             </div>
         </div>
     </div>
@@ -34,7 +34,6 @@
 <div class="row">
     <div class="col col-offset-10 col-10">
         <button class="button button-block" ng-click="rollClean();scroll()">
-            <!--This is a bit buggy in the 10th frame-->
             <span>{{
                 (!game.currentFrame() || game.currentFrame().isComplete() || game.currentFrame().score() % 15 === 0) ? 'X' 
                 : game.currentFrame()._rolls.length == 1 ? '/'
