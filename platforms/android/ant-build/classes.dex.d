@@ -1,4 +1,11 @@
 C:\source\dungeon\strixe\platforms\android\ant-build\classes.dex : \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\BuildConfig.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\CordovaApp.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\R$attr.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\R$drawable.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\R$string.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\R$xml.class \
+C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\caffeinatedgeek\ca\strixe\R.class \
 C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$1.class \
 C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$2.class \
 C:\source\dungeon\strixe\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$3.class \
