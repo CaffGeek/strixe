@@ -1,14 +1,13 @@
 ﻿(function () {
     "use strict";
 
-    app.controller("MenuController", ["$scope", "$location", "$ionicSideMenuDelegate", function ($scope, $location, $ionicSideMenuDelegate) {
+    app.controller("MenuController", ["$scope", "$location", "$ionicSideMenuDelegate", "GoTo", function ($scope, $location, $ionicSideMenuDelegate, goTo) {
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
         $scope.goTo = function (page) {
-            $ionicSideMenuDelegate.toggleLeft(false);
-            $location.url('/' + page);
+            goTo.page(page);
         };
     }]);
 }());

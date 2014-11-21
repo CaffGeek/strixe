@@ -1,9 +1,14 @@
 ﻿var Frame = (function () {
     "use strict";
 
-    function frame(number) {
-        this.number = number || 1;
+    function frame(f) {
         this._rolls = [];
+
+        if (typeof f === 'number')
+            this.number = f || 1;
+
+        if (typeof f === 'object')
+            this.load(f);
     };
 
     frame.prototype.mask = function () {
@@ -27,6 +32,14 @@
     frame.prototype.isComplete = function() {
         return (this.number < 10 && (this._rolls.length === 3 || this.mask() === parseInt('11111', 2)))
             || (this.number === 10 && this._rolls.length === 3);
+    };
+
+    frame.prototype.load = function (loadframe) {
+        var that = this;
+        that.number = loadframe.number;
+        angular.forEach(loadframe._rolls, function (roll) {
+            that._rolls.push(roll);
+        });
     };
 
     return frame;

@@ -1,5 +1,5 @@
 ﻿app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    //$urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('home', {
@@ -8,6 +8,7 @@
         })
         .state('history', {
             url: '/history',
+            controller: 'HistoryController',
             templateUrl: 'views/history.html'
         })
         .state('settings', {
@@ -20,6 +21,11 @@
         })
         .state('game', {
             url: '/game',
+            controller: 'GameController',
+            templateUrl: 'views/game.html'
+        })
+        .state('game.id', {
+            url: '/:id',
             controller: 'GameController',
             templateUrl: 'views/game.html'
         });

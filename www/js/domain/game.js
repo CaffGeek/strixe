@@ -1,8 +1,11 @@
 ﻿var Game = (function() {
     "use strict";
 
-    function game() {
+    function game(loadgame) {
         this._frames = [];
+
+        if (loadgame)
+            this.load(loadgame);
     };
 
     game.prototype.getFrames = function() {
@@ -24,6 +27,14 @@
         }
 
         frame.roll(mask);
+    };
+
+    game.prototype.load = function (loadgame) {
+        var that = this;
+        that.id = loadgame.id;
+        angular.forEach(loadgame._frames, function(frame) {
+            that._frames.push(new Frame(frame));
+        });
     };
 
     return game;

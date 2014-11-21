@@ -1,1 +1,5 @@
-﻿history
+﻿<ion-list>
+    <ion-item ng-repeat="game in games" ng-click="goTo('game/' + game)">
+        {{game}}
+    </ion-item>
+</ion-list>

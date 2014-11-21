@@ -67,11 +67,11 @@
 
     function newRack() {
         return [
-            { name: "L2", value: 2, position: 0, isStanding: true },
-            { name: "L3", value: 3, position: 1, isStanding: true },
+            { name: "L2", value: 2, position: 4, isStanding: true },
+            { name: "L3", value: 3, position: 3, isStanding: true },
             { name: "HP", value: 5, position: 2, isStanding: true },
-            { name: "R3", value: 3, position: 3, isStanding: true },
-            { name: "R2", value: 2, position: 4, isStanding: true }
+            { name: "R3", value: 3, position: 1, isStanding: true },
+            { name: "R2", value: 2, position: 0, isStanding: true }
         ];
     };
 
