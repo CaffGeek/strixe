@@ -1,7 +1,15 @@
-﻿<ion-scroll direction="x">
+﻿<div class="bar bar-header">
+    <h2 class="title">{{game.league.name}} - {{game.season.name}}</h2>
+</div>
+<!--hack-->
+<div class="row" style="padding-top: 3em;">
+    {{game.date.toString()}}
+</div>
+
+<ion-scroll direction="x">
     <div class="row">
         <div class="col col-20 frame" ng-repeat="frame in game.getFrames()">
-            <div class="row row-top">
+            <div class="row">
                 <div class="col">{{frame.number}}</div>
             </div>
             <div class="row">
@@ -34,11 +42,13 @@
 <div class="row">
     <div class="col col-offset-10 col-10">
         <button class="button button-block" ng-click="rollClean();scroll()">
-            <span>{{
-                (!game.currentFrame() || game.currentFrame().isComplete() || game.currentFrame().score() % 15 === 0) ? 'X' 
+            <span>
+                {{
+                (!game.currentFrame() || game.currentFrame().isComplete() || game.currentFrame().score() % 15 === 0) ? 'X'
                 : game.currentFrame()._rolls.length == 1 ? '/'
                 : '15'
-                }}</span>
+                }}
+            </span>
         </button>
     </div>
     <div class="col col-offset-20 col-50">

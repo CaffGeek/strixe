@@ -1,7 +1,6 @@
 angular.module('StriXe.Repositories', []);
-angular.module('StriXe.Navigation', []);
 
-var app = angular.module('StriXe', ['ionic', 'ionic.utils', 'StriXe.Repositories', 'StriXe.Navigation']);
+var app = angular.module('StriXe', ['ionic', 'ionic.utils', 'StriXe.Repositories']);
 
 app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

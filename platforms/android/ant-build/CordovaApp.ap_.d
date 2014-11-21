@@ -56,7 +56,6 @@ C:\source\dungeon\strixe\platforms\android\assets\www\js\domain\game.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\domain\pinsetter.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\domain\scorekeeper.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\services\localstorage.js \
-C:\source\dungeon\strixe\platforms\android\assets\www\js\services\navigation.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\js\services\repositories.js \
 C:\source\dungeon\strixe\platforms\android\assets\www\lib\ionic \
 C:\source\dungeon\strixe\platforms\android\assets\www\lib\ionic\css \

@@ -32,6 +32,9 @@
     game.prototype.load = function (loadgame) {
         var that = this;
         that.id = loadgame.id;
+        that.league = loadgame.league;
+        that.season = loadgame.season;
+        that.date = new Date(loadgame.date);
         angular.forEach(loadgame._frames, function(frame) {
             that._frames.push(new Frame(frame));
         });

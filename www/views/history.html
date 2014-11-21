@@ -1,5 +1,5 @@
 ﻿<ion-list>
-    <ion-item ng-repeat="game in games" ng-click="goTo('game/' + game)">
-        {{game}}
+    <ion-item ng-repeat="game in games | orderBy : game.date : reverse" ui-sref="game.load({id: game.id})">
+        {{game.date | date : 'mediumDate'}} - {{game.league}}
     </ion-item>
 </ion-list>

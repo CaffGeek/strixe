@@ -1,8 +1,31 @@
 ﻿<div class="row">
-    <div class="col">
-        <button class="button button-block button-energized"
-                ng-click="goTo('game')">
-            Enter a new game!
-        </button>
+    <div class="col col-25">
+        League
     </div>
+    <div class="col col-50">
+        <select ng-model="game.league" ng-options="league.name for league in leagues"></select>
+    </div>
+
+    <div class="col col-25">
+        <button class="button button-small button-balanced">New League</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-25">
+        Season
+    </div>
+    <div class="col col-50">
+        <select ng-model="game.season" ng-options="season.name for season in seasons"></select>
+    </div>
+
+    <div class="col col-25">
+        <button class="button button-small button-balanced">New Season</button>
+    </div>
+</div>
+
+<div class="row">
+    <button class="button button-block button-energized" ng-click="new()">
+        Enter a new game!
+    </button>
 </div>

@@ -1,9 +1,10 @@
 ﻿app.config(function ($stateProvider, $urlRouterProvider) {
-    //$urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('home', {
             url: '/',
+            controller: 'GameController',
             templateUrl: 'views/home.html'
         })
         .state('history', {
@@ -24,9 +25,8 @@
             controller: 'GameController',
             templateUrl: 'views/game.html'
         })
-        .state('game.id', {
-            url: '/:id',
-            controller: 'GameController',
-            templateUrl: 'views/game.html'
+        .state('game.load', {
+            url: '/load/:id',
+            controller: 'GameController'
         });
 });
